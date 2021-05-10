@@ -40,6 +40,9 @@ When the container is running:
 ```bash
 docker exec -it "clamav" /usr/local/sbin/clamav-unofficial-sigs.sh
 ```
+```bash
+docker exec -it "clamav" /usr/bin/clamdscan --reload
+```
 
 # Configuration
 
