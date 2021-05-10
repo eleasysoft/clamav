@@ -10,16 +10,16 @@ First, you can build the image or pull it:
 
 ### Get the image
 ```bash
-docker build -t openbridge/clamav .
+docker build -t easysoft/clamav .
 ```
 The easier thing to do would be to pull it:
 ```bash
-docker pull openbridge/clamav
+docker pull easysoft/clamav
 ```
 ### Starting your container
 Next, to run the image you can use:
 ```bash
-docker run -d -p 3310:3310 openbridge/clamav
+docker run  --name "clamav" -d -p 3310:3310 easysoft/clamav
 ```
  or via a simpler (recommended!) approach is to use the included Docker compose file:
 ```bash
@@ -32,6 +32,13 @@ The benefit of compose is the use of a Docker volume to hold the clam database f
 volumes:
   clamd_data:
     driver: local
+```
+
+### Update unofficial signatures
+
+When the container is running:
+```bash
+docker exec -it "clamav" /usr/local/sbin/clamav-unofficial-sigs.sh
 ```
 
 # Configuration
