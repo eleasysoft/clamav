@@ -1,8 +1,8 @@
 version: '3.1'
 services:
   clamav:
-    image: openbridge/clamav
-    container_name: clamav
+    image: easysoft/clamav
+    container_name: clamav_server
     ports:
       - 3310:3310
     tty: true
